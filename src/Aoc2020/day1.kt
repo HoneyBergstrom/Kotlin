@@ -1,9 +1,10 @@
-package Inlämnning2
+package Aoc2020
 
 import java.io.File
 
     val data : List<Int> = File("src/Inlämnning2/input.txt").readLines().map { it.toInt()}
 
+//Q : find the 2 entries that sum to 2020 and then multiply those two numbers together.
     fun funktionPartOne (numbers : List<Int>) {
         for (i in numbers.indices) {
             for(j in i + 1 until numbers.size) {
@@ -18,7 +19,7 @@ import java.io.File
         }
 
     }
-
+////Q : find the 3 entries that sum to 2020 and then multiply those two numbers together.
     fun funktionPartTwo (numbers : List<Int>) {
         for (i in numbers.indices) {
             for (j in i + 1 until numbers.size) {

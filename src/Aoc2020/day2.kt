@@ -1,4 +1,4 @@
-package Inlämnning2
+package Aoc2020
 
 import java.io.File
 //How many passwords are valid according to their policies?
@@ -24,7 +24,6 @@ fun validPasswordPart1() : Int {
         val minCount = rangeParts[0].toInt()
         val maxCount = rangeParts[1].toInt()
 
-        // Get the letter
         val letter = policyParts[1].single()
 
         // Count how many times the letter appears in the password
@@ -38,6 +37,7 @@ fun validPasswordPart1() : Int {
     return validCount
 }
 
+ //1-3 b: cdefg is invalid: neither position 1 nor position 3 contains b.
 fun validPasswordPart2() : Int {
     var validCount = 0
 
@@ -51,15 +51,14 @@ fun validPasswordPart2() : Int {
         val positions = policyParts[0].split("-")
 
         // Convert to positions (adjusting for 1-based indexing)
-        val firstPos = positions[0].toInt() - 1  // Convert to 0-based index
-        val secondPos = positions[1].toInt() - 1 // Convert to 0-based index
+        val firstPos = positions[0].toInt() - 1
+        val secondPos = positions[1].toInt() - 1
         val letter = policyParts[1].single()
 
         // Check if exactly one of the positions contains the letter
         val firstMatch = firstPos < password.length && password[firstPos] == letter
         val secondMatch = secondPos < password.length && password[secondPos] == letter
 
-        // Valid if exactly one position matches (XOR operation)
         if (firstMatch != secondMatch) {
             validCount++
         }
